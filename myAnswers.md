@@ -1,5 +1,5 @@
 # Lab 02 My Answers
-**Student Name:** YOUR NAME HERE
+**Student Name:** TALA ROT
 
 ---
 
@@ -41,24 +41,24 @@ Step 3 — Identify each field:
 ---
 
 **1. `MOVZ X0, #5`**
-
+d28000a0
 Hex encoding (from disassembly log): `0x`
 
 Binary (32-bit):
 ```
-_    _    _    _    _    _    _    _
-____ ____ ____ ____ ____ ____ ____ ____
+_D    _2    _8    _0    _0    _0   _A    _0
+1101  0010  1000  0000  0000  0000 1010 0000
 ```
 
 | 31 | 30-29 | 28-23  | 22-21 | 20-5  | 4-0 |
 |----|-------|--------|-------|-------|-----|
 | sf | 10    | 100101 | hw    | imm16 | Rd  |
-|    |       |        |       |       |     |
+| 1  |  10   | 100101 | 00    | 000 0000 0000 101 | 00000 |
 
-- `sf` =
-- `hw` =
-- `imm16` =
-- `Rd` =
+- `sf` = 1
+- `hw` = 10
+- `imm16` = 00000000000101
+- `Rd` = 00000
 
 ---
 
@@ -68,18 +68,19 @@ Hex encoding (from disassembly log): `0x`
 
 Binary (32-bit):
 ```
-_    _    _    _    _    _    _    _
-____ ____ ____ ____ ____ ____ ____ ____
+8b000084
+8    B    0    0    0    0    8    4
+1000 1011 0000 0000 0000 0000 1000 0100
 ```
 
 | 31 | 30 | 29 | 28-24 | 23-22 | 21 | 20-16 | 15-10 | 9-5 | 4-0 |
 |----|----|----|-------|-------|---|-------|-------|-----|-----|
 | sf | op | S  | 01011 | shift | 0  | Rm    | imm6  | Rn  | Rd  |
-|    |    |    |       |       |   |       |       |     |     |
-
-- `Rm` (binary) =
-- `Rn` (binary) =
-- `Rd` (binary) =
+|  1 | 0  | 0  |       | 00    |    | 0000 | 00000 | 00100 | 00100 |
+   1   0    0            00          0000.    00000. 00100.  00100
+- `Rm` (binary) = 00000
+- `Rn` (binary) = 00100
+- `Rd` (binary) = 00100
 
 ---
 
@@ -89,18 +90,19 @@ Hex encoding (from disassembly log): `0x`
 
 Binary (32-bit):
 ```
-_    _    _    _    _    _    _    _
-____ ____ ____ ____ ____ ____ ____ ____
+eb010000
+E    B    0    1    0    0    0    0
+1110 1011 0000 0001 0000 0000 0000 0000
 ```
 
 | 31 | 30 | 29 | 28-24 | 23-22 | 21 | 20-16 | 15-10 | 9-5 | 4-0 |
 |----|----|----|-------|-------|---|-------|-------|-----|-----|
 | sf | op | S  | 01011 | shift | 0  | Rm    | imm6  | Rn  | Rd  |
-|    |    |    |       |       |   |       |       |     |     |
+|  1 |  1 | 1  | 01011 | 00    | 0  | 00001 | 000000| 00000|00000|
 
 Compare the `op` and `S` bits to `ADD` above:
 - How does the encoding differ to signal that condition flags should be updated?
-
+Converting the S to 1 indicate that the condition flag should be updated. 
 ---
 
 **4. `B.NE sum_loop`**
